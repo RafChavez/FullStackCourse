@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
+    user->>browser: Fill data and click save button
+    activate server
+    browser->>server: POST (Send the data in json)
+    server-->>server: Valid and save the data
+    server-->>browser: Return a response
+    deactivate server
+    browser-->>browser: Modification of the HTML (with the DOM) indacated by javascript 
+  

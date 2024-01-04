@@ -1,0 +1,31 @@
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
+    user->>browser: Fill data and click save button
+    activate server
+    browser->>server: POST (Send the data)
+    server-->>server: Valid and save the data
+    server-->>browser: Reload the page on header's Location
+    deactivate server
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [ Content ]
+    deactivate server
+  
